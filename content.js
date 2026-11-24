@@ -133,10 +133,9 @@ window.SITE = {
     ],
     flow: ["相談（無料）", "内容と見積もりの確認", "制作（途中で確認）", "公開・納品"],
     contact: {
-      text: "依頼・相談は、メールか X の DM で。何を作りたいかが決まっていなくても大丈夫です。",
+      text: "依頼・相談は、メールで受け付けています。何を作りたいかが決まっていなくても大丈夫です。",
       links: [
         ["メール", "mailto:gitpullpull@gmail.com", "gitpullpull@gmail.com"],
-        ["X", "https://x.com/itoushiyou", "@itoushiyou（尾薗）"],
       ],
     },
   },
