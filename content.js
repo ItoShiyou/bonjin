@@ -135,7 +135,7 @@ window.SITE = {
     contact: {
       text: "依頼・相談は、メールで受け付けています。何を作りたいかが決まっていなくても大丈夫です。",
       links: [
-        ["メール", "mailto:gitpullpull@gmail.com", "gitpullpull@gmail.com"],
+        ["メール", "mailto:gitpull@muse.ai", "gitpull@muse.ai"],
       ],
     },
   },
@@ -183,7 +183,7 @@ window.SITE = {
       facts: [
         ["研究", "D-CoT: Disciplined Chain-of-Thought（小型LLMの推論効率化）"],
         ["受賞", "人工知能学会 全国大会優秀賞（2026・単著）"],
-        ["連絡先", "gitpullpull@gmail.com"],
+        ["連絡先", "gitpull@muse.ai"],
       ],
       links: [
         ["受賞（学会公式）", "https://www.ai-gakkai.or.jp/about/award/jsai_award-conf/", "人工知能学会 受賞者ページ"],
@@ -269,6 +269,7 @@ window.SITE = {
       ["旧サイト", "https://itoshiyou.github.io/thebonjin/"],
       ["GitHub (itoshiyou/thebonjin)", "https://github.com/itoshiyou/thebonjin"],
       ["仕事の依頼・相談", "#services"],
+      ["公式LINE（新作・お知らせ）", "https://line.me/R/ti/p/@629zrowt"],
     ],
     colophon: "DESIGN: awesome-design-md / Zapier を土台に改変。書体: Archivo, Zen Kaku Gothic New, IBM Plex Mono。写真は使っていません。",
   },
