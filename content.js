@@ -269,6 +269,7 @@ window.SITE = {
       ["旧サイト", "https://itoshiyou.github.io/thebonjin/"],
       ["GitHub (itoshiyou/thebonjin)", "https://github.com/itoshiyou/thebonjin"],
       ["仕事の依頼・相談", "#services"],
+      ["公式LINE（新作・お知らせ）", "https://line.me/R/ti/p/@629zrowt"],
     ],
     colophon: "DESIGN: awesome-design-md / Zapier を土台に改変。書体: Archivo, Zen Kaku Gothic New, IBM Plex Mono。写真は使っていません。",
   },
