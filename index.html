@@ -4,12 +4,21 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>THE BONJIN — 凡人</title>
-<meta name="description" content="THE Bonjin 公式サイト（VOL.0）。ゲームとアプリを作る学生の開発集団。メンバー6人 — 尾薗圭亮、gitpullpull、伊藤しよう、生方、ほか。">
+<meta name="description" content="THE Bonjin 公式サイト（VOL.0）。ゲームとアプリを作る学生の開発集団。ホームページ制作、名刺とホームページの同時開発、アプリ・システム開発、アプリ開発、ゲーム開発、Tシャツ。メンバー6人 — 尾薗圭亮、gitpullpull、伊藤しよう、生方、ほか。">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="THE BONJIN">
+<meta property="og:title" content="THE BONJIN — 凡人">
+<meta property="og:description" content="ゲームとアプリを作る学生の開発集団。ホームページ制作、名刺とホームページの同時開発、アプリ・システム開発、アプリ開発、ゲーム開発、Tシャツ。">
+<meta property="og:url" content="https://bonjin.gitpullpull.me/">
+<meta property="og:image" content="https://bonjin.gitpullpull.me/assets/poster2.png">
+<meta property="og:locale" content="ja_JP">
+<meta name="twitter:card" content="summary_large_image">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;700;800;900&family=IBM+Plex+Mono:wght@400;700&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap" rel="stylesheet">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Crect width='16' height='16' fill='%23FFFEFB'/%3E%3Ccircle cx='8' cy='8' r='4' fill='%23FF4F00'/%3E%3C/svg%3E">
 <link rel="stylesheet" href="style.css">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Organization", "name": "THE BONJIN", "url": "https://bonjin.gitpullpull.me/", "logo": "https://bonjin.gitpullpull.me/assets/logo.jpg", "description": "ゲームとアプリを作る学生の開発集団（宮崎・東京）", "makesOffer": [{"@type": "Offer", "itemOffered": {"@type": "Service", "name": "ホームページ制作"}}, {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "名刺 × ホームページ 同時開発"}}, {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "アプリ・システム開発"}}, {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "アプリ開発"}}, {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "ゲーム開発"}}, {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Tシャツ事業"}}]}</script>
 </head>
 <body>
 <div class="grain" aria-hidden="true"></div>
@@ -37,7 +46,7 @@
 <!-- 状態帯：実データ（MOT式）。作品の直下から sticky -->
 <div class="statusbar">
   <div class="wrap">
-    <span id="status-left">THE BONJIN — ゲームとアプリを作る学生の開発集団</span>
+    <span id="status-left">THE BONJIN — ゲームとアプリを作る学生の開発集団 ／ 制作の依頼を受付中</span>
     <span><span class="hot">App Store 公開中 6本</span>
     &nbsp;<button id="cmdk-open" type="button">⌘K で探す</button></span>
   </div>
@@ -47,6 +56,7 @@
   <nav class="top">
     <a class="logo" href="#top">THE BONJIN<span class="dot">.</span></a>
     <ul>
+      <li><a href="#services">仕事</a></li>
       <li><a href="#about">について</a></li>
       <li><a href="#members">メンバー</a></li>
       <li><a href="#products">目録</a></li>
@@ -57,10 +67,10 @@
   <header class="hero">
     <p class="hero-fig mono">FIG_000 — THE BONJIN, <span id="vol"></span> / EST. 2026, MIYAZAKI–TOKYO</p>
     <p class="hero-rot" id="hero-rot"></p>
-    <p class="hero-lead">特別な人間はいない。いるのは、作り続けている普通の人間だけです。THE Bonjinは、ゲームとアプリを作る学生の開発集団です。凡人が作る、未来への冒険（2026）。</p>
+    <p class="hero-lead">特別な人間はいない。いるのは、作り続けている普通の人間だけです。THE Bonjinは、ゲームとアプリを作る学生の開発集団です。ホームページ、名刺、アプリ、システム、ゲーム、Tシャツ。作れるものは、仕事として引き受けます。凡人が作る、未来への冒険（2026）。</p>
     <div class="hero-actions">
-      <a class="btn btn-primary" href="apps.html" data-cursor="アプリ">アプリを見る</a>
-      <a class="btn btn-ghost" href="#members" data-cursor="メンバー">メンバーを見る</a>
+      <a class="btn btn-primary" href="#services" data-cursor="仕事">依頼・相談する</a>
+      <a class="btn btn-ghost" href="apps.html" data-cursor="アプリ">アプリを見る</a>
     </div>
     <div class="stats" id="stats"></div>
   </header>
@@ -70,9 +80,22 @@
 
 <div class="wrap veil">
 
+  <section id="services">
+    <div class="sec-head">
+      <span class="sec-fig">FIG_001</span><h2>仕事</h2>
+      <span class="sec-note">WHAT WE MAKE — 実績は実在するものだけ載せる</span>
+    </div>
+    <p class="svc-lead" id="svc-lead"></p>
+    <div class="svc-list" id="svc-list"></div>
+    <div class="svc-foot">
+      <div class="svc-box"><h3 class="svc-box-h mono">FLOW — 相談の流れ</h3><ol class="svc-flow" id="svc-flow"></ol></div>
+      <div class="svc-box svc-box-contact"><h3 class="svc-box-h mono">CONTACT — 問い合わせ</h3><div class="svc-contact" id="svc-contact"></div></div>
+    </div>
+  </section>
+
   <section id="about">
     <div class="sec-head">
-      <span class="sec-fig">FIG_001</span><h2>メンバーについて</h2>
+      <span class="sec-fig">FIG_002</span><h2>メンバーについて</h2>
       <span class="sec-note">ABOUT THE MEMBERS</span>
     </div>
     <div class="body-text" id="about-body"></div>
@@ -80,7 +103,7 @@
 
   <section id="members">
     <div class="sec-head">
-      <span class="sec-fig">FIG_002</span><h2>メンバー</h2>
+      <span class="sec-fig">FIG_003</span><h2>メンバー</h2>
       <span class="sec-note">写真は載せない。やったことで並ぶ。／ 行を押すと詳細</span>
     </div>
     <div class="ledger" id="ledger"></div>
@@ -88,7 +111,7 @@
 
   <section id="products">
     <div class="sec-head">
-      <span class="sec-fig">FIG_003</span><h2>目録</h2>
+      <span class="sec-fig">FIG_004</span><h2>目録</h2>
       <span class="sec-note">作ったもの、作っているもの。状態だけを正確に書く。</span>
     </div>
     <div id="products-list"></div>

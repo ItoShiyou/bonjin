@@ -96,7 +96,7 @@ header.hero{padding:56px 0 0;position:relative}
   margin-top:44px;font-size:clamp(20px,3.2vw,30px);font-weight:600;line-height:1.6;
 }
 .hero-rot .slot{
-  display:inline-block;color:var(--primary);min-width:5.5em;text-align:center;
+  display:inline-block;color:var(--primary);min-width:6.5em;text-align:center;
   border-bottom:3px solid var(--primary);
 }
 .hero-lead{margin-top:20px;max-width:620px;color:var(--ink-soft);font-size:17px}
@@ -237,6 +237,36 @@ del{color:var(--body-mid)}
 .p-meta{font-family:var(--font-mono);font-size:11px;color:var(--body);grid-column:2}
 @media(max-width:640px){.p-row{grid-template-columns:86px 1fr}.p-meta{grid-column:2}}
 
+/* services (仕事) */
+.svc-lead{margin-top:28px;max-width:720px;font-size:17px;color:var(--ink-soft)}
+.svc-list{margin-top:28px;display:grid;gap:16px}
+.svc{display:grid;grid-template-columns:110px 1fr;gap:20px;padding:28px 28px 24px;background:var(--canvas-soft);border-radius:var(--radius);border-left:4px solid var(--ink);scroll-margin-top:80px}
+.svc-spine{display:flex;flex-direction:column;gap:10px;align-items:flex-start}
+.svc-no{font-size:12px;color:var(--body);letter-spacing:.12em}
+.svc-name{font-family:var(--font-display);font-weight:800;font-size:clamp(24px,4vw,36px);line-height:1.25}
+.svc-en{display:block;font-size:11px;font-weight:400;letter-spacing:.18em;color:var(--body);margin-top:6px}
+.svc-body{margin-top:14px;max-width:680px;color:var(--ink-soft);font-size:15px}
+.svc-cols{display:grid;grid-template-columns:repeat(3,1fr);gap:16px 32px;margin-top:20px}
+.svc-cols h4{font-size:11px;letter-spacing:.15em;color:var(--body);font-weight:400;border-bottom:1px solid var(--mute);padding-bottom:6px;margin-bottom:8px}
+.svc-cols ul{list-style:none;padding:0;margin:0}
+.svc-cols li{font-size:14px;padding:5px 0;line-height:1.6}
+.svc-ex li::before{content:"— ";color:var(--body)}
+.svc-pt li::before{content:"● ";color:var(--primary);font-size:9px;vertical-align:2px}
+.svc-works .w-note{display:block;font-size:12px;color:var(--body)}
+.svc-works .w-none{color:var(--body)}
+.svc-foot{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:16px}
+.svc-box{background:var(--canvas-soft);border-radius:var(--radius);padding:24px 28px}
+.svc-box-contact{background:var(--canvas);border:2px solid var(--ink)}
+.svc-box-h{font-size:11px;letter-spacing:.15em;font-weight:700;color:var(--ink);margin-bottom:10px}
+.svc-flow{list-style:none;padding:0;margin:0;counter-reset:none}
+.svc-flow li{display:flex;gap:16px;align-items:baseline;border-top:1px solid var(--mute);padding:10px 0;font-size:15px}
+.svc-flow li:first-child{border-top:none}
+.svc-flow li span{font-size:11px;color:var(--primary);font-weight:700}
+.svc-contact p{font-size:15px;color:var(--ink-soft)}
+@media(max-width:1000px){.svc-cols{grid-template-columns:1fr 1fr}}
+@media(max-width:760px){.svc-cols,.svc-foot{grid-template-columns:1fr}}
+@media(max-width:640px){.svc{grid-template-columns:1fr;gap:10px;padding:22px 18px}.svc-spine{flex-direction:row;align-items:center}.svc-box{padding:20px 18px}}
+
 /* manifesto (dark inversion band) */
 .manifesto{
   background:var(--ink);color:var(--canvas);
@@ -370,3 +400,20 @@ footer{background:rgba(255,254,251,.92)}
 .m-facts{list-style:none;margin-top:8px}
 .m-back{margin-top:46px;font-weight:700}
 @media(max-width:640px){.cat-shots img{height:240px}.cat-store{margin-left:0}.m-catalog .g{display:none}}
+
+/* v4: セクションをブロックに分ける（.veil 内の各 section を1枚の紙に） */
+.veil > section, .subpage > section{
+  background:var(--canvas);border:1px solid var(--ink);border-radius:var(--radius);
+  padding:40px 40px 44px;margin-top:56px;scroll-margin-top:72px;
+}
+.veil > section:last-child{margin-bottom:96px}
+.subpage > section:first-of-type{margin-top:32px}
+.subpage > section > .m-h:first-child{margin-top:0}
+.subpage .m-back{margin:32px 0 96px}
+.veil > section .sec-head{margin-top:0}
+@media(max-width:640px){.veil > section, .subpage > section{padding:28px 18px 32px;margin-top:36px}}
+/* apps: 各アプリをカードに、末尾をボックスに */
+.subpage .cat-entry{background:var(--canvas-soft);border:none;border-left:4px solid var(--ink);border-radius:var(--radius);padding:28px 28px 30px;margin-top:16px;scroll-margin-top:24px}
+.subpage .cat-entry:first-of-type{margin-top:28px}
+.subpage .cat-foot{border:2px solid var(--ink);border-radius:var(--radius);padding:22px 28px 14px;margin-top:16px}
+@media(max-width:640px){.subpage .cat-entry{padding:22px 16px 24px}.subpage .cat-foot{padding:18px 16px 8px}}

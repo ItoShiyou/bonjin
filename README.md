@@ -11,6 +11,14 @@
 - **members/ozono.html / members/gitpullpull.html**: メンバー紹介ページ。名簿の詳細からリンクされる。台帳の1行をページに拡大した形（巨大な名前、罫線のリンク行、尾薗の作品はテキスト目録）。
 - **ドグマ監査（2026-11-12）**: DOGMA.md／STEAL-LIST.md で再点検。本文フォントの Inter を廃し Zen Kaku Gothic New に（DOGMA §1-7）。apps.html の App Store ボタン×6 をゴースト化し、橙の主アクションは申込ボタン1つに限定（オレンジ配給制）。活動ログに打ち消し線の編集痕跡を実装（~~旧文~~ → <s>、計~~3本~~6本)。禁止語・href="#" はゼロ件を確認。
 
+## v4（2026-11-24 追加）
+- **仕事（#services, FIG_001）**: 事業6つ（ホームページ制作／名刺×ホームページ同時開発／アプリ・システム開発／アプリ開発／ゲーム開発／Tシャツ事業）を台帳の文法で掲載。各項目に「こんな依頼に」（想定例）と「実績」（実在するものだけ）を分けて表示。データは `content.js` の `services`。
+- ヒーローの橙ボタンを「依頼・相談する」（#services）に変更。回る語にホームページ・名刺・Tシャツを追加。ナビ・⌘K パレット・マーキー・meta description に事業を反映。
+- 各事業に「できること」を追加（3列: できること／こんな依頼に／実績）。Tシャツ事業の説明を拡充（オリジナルTシャツ販売＋団体・イベントのおそろいTシャツ制作）。
+- OGP／Twitter カードを全ページに、index に JSON-LD（Organization + 提供サービス）を追加。サブページのナビと apps.html 末尾、奥付の LINKS に「仕事」への導線。奥付の書体表記を実態（Zen Kaku Gothic New）に修正。
+- 料金は載せない方針。問い合わせ窓口はメール（gitpullpull@gmail.com）のみ。
+- 未確定: Tシャツの販売開始時期・販売場所。
+
 ## ファイル
 - `index.html` — 骨格
 - `style.css` — Zapier DESIGN.md のトークン（canvas #FFFEFB / ink #201515 / primary #FF4F00 / 角丸12px）を土台に、../research/STEAL-LIST.md の文法で組んだもの
