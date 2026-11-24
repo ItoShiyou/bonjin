@@ -402,10 +402,18 @@ footer{background:rgba(255,254,251,.92)}
 @media(max-width:640px){.cat-shots img{height:240px}.cat-store{margin-left:0}.m-catalog .g{display:none}}
 
 /* v4: セクションをブロックに分ける（.veil 内の各 section を1枚の紙に） */
-.veil > section{
+.veil > section, .subpage > section{
   background:var(--canvas);border:1px solid var(--ink);border-radius:var(--radius);
   padding:40px 40px 44px;margin-top:56px;scroll-margin-top:72px;
 }
 .veil > section:last-child{margin-bottom:96px}
+.subpage > section:first-of-type{margin-top:32px}
+.subpage > section > .m-h:first-child{margin-top:0}
+.subpage .m-back{margin:32px 0 96px}
 .veil > section .sec-head{margin-top:0}
-@media(max-width:640px){.veil > section{padding:28px 18px 32px;margin-top:36px}}
+@media(max-width:640px){.veil > section, .subpage > section{padding:28px 18px 32px;margin-top:36px}}
+/* apps: 各アプリをカードに、末尾をボックスに */
+.subpage .cat-entry{background:var(--canvas-soft);border:none;border-left:4px solid var(--ink);border-radius:var(--radius);padding:28px 28px 30px;margin-top:16px;scroll-margin-top:24px}
+.subpage .cat-entry:first-of-type{margin-top:28px}
+.subpage .cat-foot{border:2px solid var(--ink);border-radius:var(--radius);padding:22px 28px 14px;margin-top:16px}
+@media(max-width:640px){.subpage .cat-entry{padding:22px 16px 24px}.subpage .cat-foot{padding:18px 16px 8px}}
