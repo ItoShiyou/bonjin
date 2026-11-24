@@ -52,6 +52,39 @@
   var items = S.marquee.map(function (m) { return "<span>" + esc(m) + "　／</span>"; }).join("");
   $("#marquee-track").innerHTML = "<div>" + items + '</div><div aria-hidden="true">' + items + "</div>";
 
+  /* ---------- services (仕事) ---------- */
+  var SV = S.services;
+  if (SV && $("#svc-list")) {
+    var ext = function (u) { return /^https?:/.test(u); };
+    $("#svc-lead").textContent = SV.lead;
+    $("#svc-list").innerHTML = SV.items.map(function (it) {
+      var chipCls = it.status === "受付中" ? "chip" : "chip ghost";
+      var works = it.works.length ? it.works.map(function (w) {
+        var name = w[1]
+          ? '<a href="' + esc(w[1]) + '"' + (ext(w[1]) ? ' target="_blank" rel="noopener"' : "") + ' data-cursor="開く">' + esc(w[0]) + "</a>"
+          : esc(w[0]);
+        return "<li>" + name + (w[2] ? '<span class="w-note">' + esc(w[2]) + "</span>" : "") + "</li>";
+      }).join("") : '<li class="w-none">これから。最初の実績は、ここに載ります。</li>';
+      return '<article class="svc" id="svc-' + esc(it.no) + '">' +
+        '<div class="svc-spine"><span class="svc-no mono">' + esc(it.no) + "</span>" +
+        '<span class="' + chipCls + '">' + esc(it.status) + "</span></div>" +
+        '<div class="svc-main">' +
+        '<h3 class="svc-name palt">' + esc(it.name) + '<span class="svc-en mono">' + esc(it.en) + "</span></h3>" +
+        '<p class="svc-body">' + esc(it.body) + "</p>" +
+        '<div class="svc-cols">' +
+        '<div><h4 class="mono">こんな依頼に</h4><ul class="svc-ex">' + it.examples.map(function (x) { return "<li>" + esc(x) + "</li>"; }).join("") + "</ul></div>" +
+        '<div><h4 class="mono">実績</h4><ul class="svc-works">' + works + "</ul></div>" +
+        "</div></div></article>";
+    }).join("");
+    $("#svc-flow").innerHTML = SV.flow.map(function (f, i) {
+      return '<li><span class="mono">0' + (i + 1) + "</span>" + esc(f) + "</li>";
+    }).join("");
+    $("#svc-contact").innerHTML = "<p>" + esc(SV.contact.text) + '</p><div class="links">' +
+      SV.contact.links.map(function (l) {
+        return '<a href="' + esc(l[1]) + '"' + (ext(l[1]) ? ' target="_blank" rel="noopener"' : "") + ' data-cursor="連絡">' + esc(l[0]) + "：" + esc(l[2]) + "</a>";
+      }).join("") + "</div>";
+  }
+
   /* ---------- about the members ---------- */
   $("#about-body").innerHTML = S.about.body.map(function (p) {
     return "<p>" + esc(p) + "</p>";
@@ -148,6 +181,9 @@
 
   /* ---------- ⌘K palette (paco/cmdk steal, hand-rolled) ---------- */
   var entries = [];
+  if (S.services) S.services.items.forEach(function (it) {
+    entries.push({ label: it.name, kind: "仕事・" + it.status, target: "#svc-" + it.no });
+  });
   S.members.forEach(function (m) {
     if (!m.role) return;
     entries.push({ label: m.name + "（" + m.role + "）", kind: "MEMBER", target: "#members" });

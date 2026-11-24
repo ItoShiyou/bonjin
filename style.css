@@ -96,7 +96,7 @@ header.hero{padding:56px 0 0;position:relative}
   margin-top:44px;font-size:clamp(20px,3.2vw,30px);font-weight:600;line-height:1.6;
 }
 .hero-rot .slot{
-  display:inline-block;color:var(--primary);min-width:5.5em;text-align:center;
+  display:inline-block;color:var(--primary);min-width:6.5em;text-align:center;
   border-bottom:3px solid var(--primary);
 }
 .hero-lead{margin-top:20px;max-width:620px;color:var(--ink-soft);font-size:17px}
@@ -236,6 +236,31 @@ del{color:var(--body-mid)}
 .p-hook{color:var(--ink-soft);font-size:15px}
 .p-meta{font-family:var(--font-mono);font-size:11px;color:var(--body);grid-column:2}
 @media(max-width:640px){.p-row{grid-template-columns:86px 1fr}.p-meta{grid-column:2}}
+
+/* services (仕事) */
+.svc-lead{margin-top:28px;max-width:720px;font-size:17px;color:var(--ink-soft)}
+.svc-list{margin-top:28px;border-bottom:1px solid var(--ink)}
+.svc{display:grid;grid-template-columns:110px 1fr;gap:20px;padding:32px 8px;border-top:1px solid var(--mute);scroll-margin-top:80px}
+.svc:first-child{border-top:none}
+.svc-spine{display:flex;flex-direction:column;gap:10px;align-items:flex-start}
+.svc-no{font-size:12px;color:var(--body);letter-spacing:.12em}
+.svc-name{font-family:var(--font-display);font-weight:800;font-size:clamp(24px,4vw,36px);line-height:1.25}
+.svc-en{display:block;font-size:11px;font-weight:400;letter-spacing:.18em;color:var(--body);margin-top:6px}
+.svc-body{margin-top:14px;max-width:680px;color:var(--ink-soft);font-size:15px}
+.svc-cols{display:grid;grid-template-columns:1fr 1fr;gap:0 40px;margin-top:20px;max-width:900px}
+.svc-cols h4{font-size:11px;letter-spacing:.15em;color:var(--body);font-weight:400;border-bottom:1px solid var(--mute);padding-bottom:6px;margin-bottom:8px}
+.svc-cols ul{list-style:none;padding:0;margin:0}
+.svc-cols li{font-size:14px;padding:5px 0;line-height:1.6}
+.svc-ex li::before{content:"— ";color:var(--body)}
+.svc-works .w-note{display:block;font-size:12px;color:var(--body)}
+.svc-works .w-none{color:var(--body)}
+.svc-foot{display:grid;grid-template-columns:1fr 1fr;gap:24px 48px;margin-top:36px}
+.svc-flow{list-style:none;padding:0;margin:0;counter-reset:none}
+.svc-flow li{display:flex;gap:16px;align-items:baseline;border-top:1px solid var(--mute);padding:10px 0;font-size:15px}
+.svc-flow li span{font-size:11px;color:var(--primary);font-weight:700}
+.svc-contact p{font-size:15px;color:var(--ink-soft)}
+@media(max-width:760px){.svc-cols,.svc-foot{grid-template-columns:1fr}.svc-cols>div+div{margin-top:16px}}
+@media(max-width:640px){.svc{grid-template-columns:1fr;gap:10px}.svc-spine{flex-direction:row;align-items:center}}
 
 /* manifesto (dark inversion band) */
 .manifesto{
