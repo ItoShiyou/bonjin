@@ -247,11 +247,12 @@ del{color:var(--body-mid)}
 .svc-name{font-family:var(--font-display);font-weight:800;font-size:clamp(24px,4vw,36px);line-height:1.25}
 .svc-en{display:block;font-size:11px;font-weight:400;letter-spacing:.18em;color:var(--body);margin-top:6px}
 .svc-body{margin-top:14px;max-width:680px;color:var(--ink-soft);font-size:15px}
-.svc-cols{display:grid;grid-template-columns:1fr 1fr;gap:0 40px;margin-top:20px;max-width:900px}
+.svc-cols{display:grid;grid-template-columns:repeat(3,1fr);gap:16px 32px;margin-top:20px}
 .svc-cols h4{font-size:11px;letter-spacing:.15em;color:var(--body);font-weight:400;border-bottom:1px solid var(--mute);padding-bottom:6px;margin-bottom:8px}
 .svc-cols ul{list-style:none;padding:0;margin:0}
 .svc-cols li{font-size:14px;padding:5px 0;line-height:1.6}
 .svc-ex li::before{content:"— ";color:var(--body)}
+.svc-pt li::before{content:"● ";color:var(--primary);font-size:9px;vertical-align:2px}
 .svc-works .w-note{display:block;font-size:12px;color:var(--body)}
 .svc-works .w-none{color:var(--body)}
 .svc-foot{display:grid;grid-template-columns:1fr 1fr;gap:24px 48px;margin-top:36px}
@@ -259,7 +260,8 @@ del{color:var(--body-mid)}
 .svc-flow li{display:flex;gap:16px;align-items:baseline;border-top:1px solid var(--mute);padding:10px 0;font-size:15px}
 .svc-flow li span{font-size:11px;color:var(--primary);font-weight:700}
 .svc-contact p{font-size:15px;color:var(--ink-soft)}
-@media(max-width:760px){.svc-cols,.svc-foot{grid-template-columns:1fr}.svc-cols>div+div{margin-top:16px}}
+@media(max-width:1000px){.svc-cols{grid-template-columns:1fr 1fr}}
+@media(max-width:760px){.svc-cols,.svc-foot{grid-template-columns:1fr}}
 @media(max-width:640px){.svc{grid-template-columns:1fr;gap:10px}.svc-spine{flex-direction:row;align-items:center}}
 
 /* manifesto (dark inversion band) */

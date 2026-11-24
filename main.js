@@ -72,6 +72,7 @@
         '<h3 class="svc-name palt">' + esc(it.name) + '<span class="svc-en mono">' + esc(it.en) + "</span></h3>" +
         '<p class="svc-body">' + esc(it.body) + "</p>" +
         '<div class="svc-cols">' +
+        (it.points ? '<div><h4 class="mono">できること</h4><ul class="svc-pt">' + it.points.map(function (x) { return "<li>" + esc(x) + "</li>"; }).join("") + "</ul></div>" : "") +
         '<div><h4 class="mono">こんな依頼に</h4><ul class="svc-ex">' + it.examples.map(function (x) { return "<li>" + esc(x) + "</li>"; }).join("") + "</ul></div>" +
         '<div><h4 class="mono">実績</h4><ul class="svc-works">' + works + "</ul></div>" +
         "</div></div></article>";
@@ -149,7 +150,8 @@
     return "<li>" + esc(c[0]) + "： " + esc(c[1]) + "</li>";
   }).join("");
   $("#f-links").innerHTML = S.footer.links.map(function (l) {
-    return '<li><a href="' + esc(l[1]) + '" target="_blank" rel="noopener">' + esc(l[0]) + "</a></li>";
+    var ex = /^https?:/.test(l[1]) ? ' target="_blank" rel="noopener"' : "";
+    return '<li><a href="' + esc(l[1]) + '"' + ex + ">" + esc(l[0]) + "</a></li>";
   }).join("");
 
   /* ---------- custom cursor (difference, fine pointers only) ---------- */
