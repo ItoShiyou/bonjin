@@ -393,3 +393,23 @@ nav.top .logo,nav.top ul a{white-space:nowrap}
 .lp-price-foot{font-size:12px;color:var(--body);margin-top:14px}
 @media(max-width:640px){.lp-price{padding:30px 20px 26px}}
 .lp-price-tag .t{flex-basis:100%;font-family:var(--font-body);font-size:12px;color:var(--body);letter-spacing:.08em;margin-top:4px}
+
+/* ---------- LP：スクロールで文字が浮かび上がる（lp.js が html.motion を付けたときだけ） ---------- */
+.motion .split .ch{display:inline-block;opacity:0;transform:translateY(.55em) scale(.96);filter:blur(8px);
+  transition:opacity .9s ease,transform .9s cubic-bezier(.2,.7,.2,1),filter .9s ease;transition-delay:calc(var(--i) * 45ms)}
+.motion .split.in .ch{opacity:1;transform:none;filter:none}
+.motion .stagger > *{opacity:0;transform:translateY(22px);filter:blur(4px);
+  transition:opacity .8s ease,transform .8s cubic-bezier(.2,.7,.2,1),filter .8s ease;transition-delay:calc(var(--d) * 110ms + 120ms)}
+.motion .stagger.in > *{opacity:1;transform:none;filter:none}
+.motion .rise{opacity:0;transform:translateY(26px);transition:opacity 1s ease,transform 1s cubic-bezier(.2,.7,.2,1)}
+.motion .rise.from-l{transform:translateX(-40px)}
+.motion .rise.from-r{transform:translateX(40px);transition-delay:.25s}
+.motion .rise.in{opacity:1;transform:none}
+/* 見出しの label・h2 が入れ子の .rise/.split を持つので、外枠は動かさない */
+.motion .stagger > .split,.motion .stagger > .rise{filter:none}
+.motion .sec-title{transform:translateY(var(--drift,0));will-change:transform}
+/* 名刺の見本：浮かび上がって、少し傾く */
+.motion .lp-mock.rise .mk-card{transform:rotate(-12deg) translateY(30px);transition:transform 1.2s cubic-bezier(.2,.7,.2,1) .2s}
+.motion .lp-mock.rise.in .mk-card{transform:rotate(-4deg)}
+.motion .lp-mock.rise .mk-phone{transform:translateY(40px);opacity:0;transition:transform 1.2s cubic-bezier(.2,.7,.2,1) .6s,opacity 1s ease .6s}
+.motion .lp-mock.rise.in .mk-phone{transform:none;opacity:1}

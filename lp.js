@@ -52,16 +52,93 @@
     });
   });
 
-  /* quiet fade-in */
+  /* ---------- スクロールで文字が浮かび上がる ----------
+     - 見出しは一文字ずつ、墨がにじむように下から浮かぶ
+     - 本文・リストは一行ずつ、少しずつ遅れて出る
+     - 価格は 0 から数え上がる
+     JSが無い／動きを減らす設定なら、最初から全部見えている */
   var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-  if (!reduce && "IntersectionObserver" in window) {
-    var targets = document.querySelectorAll(".sec-title, .lp-worry li, .lp-plan, .lp-mock, .lp-steps, .lp-works, .lp-flow li, .lp-faq, .dark .wrap, .cmp, .lp-reasons li, .lp-scenes, .lp-price");
-    targets.forEach(function (el) { el.classList.add("rv"); });
-    var io = new IntersectionObserver(function (es) {
-      es.forEach(function (en) {
-        if (en.isIntersecting) { en.target.classList.add("in"); io.unobserve(en.target); }
+  if (reduce || !("IntersectionObserver" in window)) return;
+  var root = document.documentElement;
+  root.classList.add("motion");
+
+  // 1) 見出しを一文字ずつに分ける（<br> などの要素はそのまま残す）
+  var split = function (el) {
+    var n = 0;
+    var walk = function (node) {
+      Array.prototype.slice.call(node.childNodes).forEach(function (c) {
+        if (c.nodeType === 3) {
+          var frag = document.createDocumentFragment();
+          Array.from(c.textContent).forEach(function (ch) {
+            if (/\s/.test(ch)) { frag.appendChild(document.createTextNode(ch)); return; }
+            var sp = document.createElement("span");
+            sp.className = "ch"; sp.textContent = ch;
+            sp.style.setProperty("--i", n++);
+            frag.appendChild(sp);
+          });
+          node.replaceChild(frag, c);
+        } else if (c.nodeType === 1 && c.tagName !== "BR") { walk(c); }
       });
-    }, { threshold: 0.12 });
-    targets.forEach(function (el) { io.observe(el); });
-  }
+    };
+    walk(el);
+    el.classList.add("split");
+    el.setAttribute("aria-label", el.textContent);
+  };
+  document.querySelectorAll(".lp-title, .sec-title h2, .lp-end, .lp-reasons h3, .lp-price-name").forEach(split);
+
+  // 2) 一行ずつ出すもの：親に .stagger、子に順番 --d
+  var groups = ".lp-hero-in, .lp-worry, .lp-plan ul, .cmp ul, .lp-reasons, .lp-scenes, .lp-steps, .lp-works, .lp-flow, .lp-faq, .lp-price ul";
+  document.querySelectorAll(groups).forEach(function (g) {
+    g.classList.add("stagger");
+    var k = 0;
+    Array.prototype.forEach.call(g.children, function (c) { c.style.setProperty("--d", k++); });
+  });
+
+  // 3) ひとかたまりで浮かぶもの
+  var blocks = ".sec-title .label, .sec-note, .more, .lp-plan, .cmp, .lp-price, .lp-mock, .lp-student, .lp-end-note, .lp-end-hint, #contact .btn, .lp-plan-lead, .cmp-h";
+  document.querySelectorAll(blocks).forEach(function (el) { el.classList.add("rise"); });
+  document.querySelectorAll(".cmp-a").forEach(function (el) { el.classList.add("from-l"); });
+  document.querySelectorAll(".cmp-b").forEach(function (el) { el.classList.add("from-r"); });
+
+  // 4) 価格の数え上げ
+  var countUp = function (b) {
+    var to = parseInt(b.textContent.replace(/[^\d]/g, ""), 10);
+    if (!to) return;
+    var t0 = null, dur = 1200;
+    var step = function (t) {
+      if (!t0) t0 = t;
+      var p = Math.min(1, (t - t0) / dur), e = 1 - Math.pow(1 - p, 3);
+      b.textContent = Math.round(to * e).toLocaleString("ja-JP");
+      if (p < 1) requestAnimationFrame(step);
+    };
+    b.textContent = "0";
+    requestAnimationFrame(step);
+  };
+
+  var targets = document.querySelectorAll(".split, .stagger, .rise, .lp-price-tag b");
+  var io = new IntersectionObserver(function (es) {
+    es.forEach(function (en) {
+      if (!en.isIntersecting) return;
+      var el = en.target;
+      if (el.matches(".lp-price-tag b")) countUp(el); else el.classList.add("in");
+      io.unobserve(el);
+    });
+  }, { threshold: 0.15, rootMargin: "0px 0px -8% 0px" });
+  targets.forEach(function (el) { io.observe(el); });
+
+  // 5) 見出しは、スクロールに合わせて少しだけ遅れてついてくる
+  var heads = Array.prototype.slice.call(document.querySelectorAll(".sec-title"));
+  var ticking = false;
+  var drift = function () {
+    ticking = false;
+    var vh = window.innerHeight;
+    heads.forEach(function (h) {
+      var r = h.getBoundingClientRect();
+      if (r.bottom < -100 || r.top > vh + 100) return;
+      var p = (r.top + r.height / 2 - vh / 2) / vh; // 画面中央で 0
+      h.style.setProperty("--drift", (p * 28).toFixed(1) + "px");
+    });
+  };
+  window.addEventListener("scroll", function () { if (!ticking) { ticking = true; requestAnimationFrame(drift); } }, { passive: true });
+  drift();
 })();
