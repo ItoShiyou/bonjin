@@ -119,6 +119,8 @@ window.SITE = {
         en: "SYSTEM",
         status: "受付中",
         body: "手作業の仕事を、AIで仕組みに。",
+        lp: "ai.html",
+        lpLabel: "中小企業のAI業務改善はこちら →",
         points: ["業務の自動化", "LLM・画像生成の組み込み", "API・サーバーの構築", "学習・試験対策のシステム"],
         examples: ["毎週の集計や画像作りを自動にするツール", "社内・部内向けの予約や管理の仕組み", "AIを使った問い合わせ対応や文章整理"],
         works: [
@@ -307,6 +309,7 @@ window.SITE = {
       ["旧サイト", "https://itoshiyou.github.io/thebonjin/"],
       ["GitHub (itoshiyou/thebonjin)", "https://github.com/itoshiyou/thebonjin"],
       ["仕事の依頼・相談", "#services"],
+      ["AI業務改善（中小企業向け）", "ai.html"],
       ["作品「九十度」", "art/02-kyujudo/index.html"],
       ["作品「足跡」", "art/03-ashiato/index.html"],
       ["作品「一滴」", "art/01-itteki/index.html"],
