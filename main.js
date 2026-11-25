@@ -66,7 +66,6 @@
         '<p class="svc-body">' + esc(it.body) + "</p>" +
         '<div class="svc-cols">' +
         (it.points ? list("できること", it.points, "svc-pt") : "") +
-        list("こんな依頼に", it.examples, "svc-ex") +
         '<div><h4>実績</h4><ul class="svc-works">' + works + "</ul></div>" +
         "</div></article>";
     }).join(""));
@@ -105,8 +104,8 @@
       } else {
         detail = '<div class="row-detail"><p class="soon en">Coming soon</p></div>';
       }
-      return '<div class="row' + (i === 0 ? " open" : "") + '">' +
-        '<button class="row-main" type="button" aria-expanded="' + (i === 0) + '">' +
+      return '<div class="row">' +
+        '<button class="row-main" type="button" aria-expanded="false">' +
         '<span class="row-no en">' + esc(m.no) + "</span>" +
         '<span class="row-name">' + esc(m.name) +
         '<span class="reading">' + esc([m.reading, m.tags.join(" / ")].filter(Boolean).join(" — ")) + "</span></span>" +
