@@ -536,3 +536,15 @@ nav.top .logo,nav.top ul a{white-space:nowrap}
 .lp-price-was{font-size:13px;color:var(--body);margin-top:10px;letter-spacing:.08em}
 .lp-price-was s{text-decoration-color:var(--accent)}
 .lp-plans.one{grid-template-columns:minmax(0,1fr);max-width:620px;margin-left:auto;margin-right:auto}
+
+/* LPの申し込み・相談フォーム（form.js が送信する） */
+.lp-form .lp-form-hp{position:absolute;left:-9999px;width:1px;height:1px;opacity:0}
+.lp-form button.btn{width:100%;border:0;cursor:pointer;font:inherit}
+.lp-form button.btn:disabled{opacity:.6;cursor:wait}
+.lp-form-status{margin-top:16px;text-align:center;font-size:14px;line-height:1.8}
+.lp-form-status:empty{display:none}
+.lp-form-status.ok{padding:18px 16px;border:1px solid rgba(234,224,206,.45);background:rgba(243,236,223,.1);color:var(--paper)}
+.lp-form-status.ng{color:#F2C7A8}
+.lp-form-status a,.lp-form .lp-end-hint a{color:var(--paper)}
+.lp-form-status:focus{outline:none}
+.lp-form.is-sent label,.lp-form.is-sent .ai-form-warn,.lp-form.is-sent button{display:none}

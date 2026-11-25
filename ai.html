@@ -353,19 +353,25 @@
       <p class="label en">Contact</p>
       <h2 class="lp-end">業務の困りごとを、<br class="sp">相談する。</h2>
       <p class="lp-end-note">「毎月、複数のExcelを<br class="sp">一つにまとめるのが大変」<br class="sp">くらいの具体性で十分です。</p>
-      <form class="ai-form" id="ai-form" onsubmit="return false">
-        <label><span>会社名・お名前</span><input type="text" id="f-name" autocomplete="organization" placeholder="例：〇〇株式会社　宮崎"></label>
-        <label><span>困っている業務</span><textarea id="f-worry" rows="4" placeholder="例：毎月、複数のExcelを一つにまとめるのが大変"></textarea></label>
+      <form class="ai-form lp-form" id="ai-form" data-kind="AI業務改善の相談" data-name-field="会社名・お名前">
+        <label><span>会社名・お名前 ＊</span><input type="text" name="会社名・お名前" required autocomplete="organization" placeholder="例：〇〇株式会社　宮崎"></label>
+        <label><span>メールアドレス ＊</span><input type="email" name="email" required autocomplete="email" placeholder="返信先になります"></label>
+        <label><span>電話番号（任意）</span><input type="tel" name="電話番号" autocomplete="tel"></label>
+        <label><span>困っている業務 ＊</span><textarea name="困っている業務" required rows="4" placeholder="例：毎月、複数のExcelを一つにまとめるのが大変"></textarea></label>
         <label><span>希望の進め方</span>
-          <select id="f-how">
+          <select name="希望の進め方">
             <option>どちらでもよい</option>
             <option>対面（宮崎県内）</option>
             <option>オンライン</option>
           </select>
         </label>
+        <label><span>ご都合のよい日時（任意）</span><input type="text" name="ご都合のよい日時" placeholder="例：平日の午後、12月上旬"></label>
+        <input type="text" name="_honey" class="lp-form-hp" tabindex="-1" autocomplete="off" aria-hidden="true">
         <p class="ai-form-warn">機密情報や、お客さまの個人情報は書かないでください。</p>
-        <a class="btn lp-btn-light js-ai-mail" href="mailto:itwoshiyou@gmail.com">相談メールの下書きを作る</a>
-        <p class="lp-end-hint">メールアプリが開きます。内容を確認して送信してください。宛先：itwoshiyou@gmail.com</p>
+        <p class="ai-form-warn">＊は必須です。送信すると、その内容がそのままTHE BONJINに届きます。</p>
+        <button class="btn lp-btn-light" type="submit">相談を送る（無料）</button>
+        <p class="lp-form-status" role="status" tabindex="-1"></p>
+        <p class="lp-end-hint">メールで送りたい方は <a href="mailto:itwoshiyou@gmail.com">itwoshiyou@gmail.com</a> へ。</p>
       </form>
     </div>
   </section>
@@ -387,5 +393,6 @@
 <script src="bg.js"></script>
 <script src="lp.js"></script>
 <script src="ai.js"></script>
+<script src="form.js"></script>
 </body>
 </html>

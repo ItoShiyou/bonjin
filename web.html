@@ -4,11 +4,11 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>名刺 × ホームページ — THE BONJIN｜宮崎</title>
-<meta name="description" content="宮崎の学生開発集団 THE BONJIN の、名刺とホームページの同時制作。名刺×ホームページは税込7,500円（名刺100枚の印刷代込み）。相談はメールで、無料です。">
+<meta name="description" content="宮崎の学生開発集団 THE BONJIN の、名刺とホームページの同時制作。名刺×ホームページは税込7,500円（名刺100枚の印刷代込み）。相談はフォームから、無料です。">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="THE BONJIN">
 <meta property="og:title" content="名刺から、ホームページへ。— THE BONJIN">
-<meta property="og:description" content="宮崎の学生チームが、名刺とホームページを同じデザインでつくります。相談はメールで、無料です。">
+<meta property="og:description" content="宮崎の学生チームが、名刺とホームページを同じデザインでつくります。相談はフォームから、無料です。">
 <meta property="og:url" content="https://bonjin.gitpullpull.me/web">
 <meta property="og:image" content="https://bonjin.gitpullpull.me/assets/poster2.png">
 <meta property="og:locale" content="ja_JP">
@@ -32,7 +32,7 @@
       <a href="#how">名刺とページ</a>
       <a href="#works">実績</a>
       <a href="#faq">質問</a>
-      <a class="nav-cta" href="#contact">メールで相談</a>
+      <a class="nav-cta" href="#contact">相談する</a>
     </nav>
   </div>
 </header>
@@ -49,7 +49,7 @@
       <h1 class="lp-title">名刺から、<br>ホームページへ。</h1>
       <p class="lp-sub">宮崎の学生チームが、<br class="sp">名刺とホームページを<br class="sp">同じデザインでつくります。</p>
       <div class="lp-cta">
-        <a class="btn js-mail" href="mailto:itwoshiyou@gmail.com">メールで相談する（無料）</a>
+        <a class="btn" href="#contact">相談する（無料）</a>
         <a class="lp-ghost" href="#plans">内容を見る ↓</a>
       </div>
       <a class="lp-student" href="student.html"><span class="k">学生・新社会人はこちら</span><span>7,500円 → 学割 4,980円 →</span></a>
@@ -167,7 +167,7 @@
         <h2>進め方</h2>
       </div>
       <ol class="lp-flow">
-        <li><span class="en">01</span><b>相談（無料）</b>メールで、一言だけでも。</li>
+        <li><span class="en">01</span><b>相談（無料）</b>フォームから、一言だけでも。</li>
         <li><span class="en">02</span><b>内容と見積もり</b>載せることと進め方を決めます。</li>
         <li><span class="en">03</span><b>制作</b>途中で見ながら直します。</li>
         <li><span class="en">04</span><b>完成</b>名刺の印刷と、ページの公開まで。</li>
@@ -186,8 +186,8 @@
         <details><summary>料金はいくらですか？</summary><p>税込7,500円です。名刺100枚の印刷代込み、修正は2回まで。学生・新社会人の方は<a href="student.html">学割（4,980円）</a>があります。相談は無料です。</p></details>
         <details><summary>文章や写真がなくても頼めますか？</summary><p>はい。何を載せるかの整理から一緒に考えます。</p></details>
         <details><summary>独自ドメインは付きますか？</summary><p>含まれません。</p></details>
-        <details><summary>会社のホームページだけを頼めますか？</summary><p>中小企業などのホームページは、応相談です。メールで内容をお知らせください。</p></details>
-        <details><summary>宮崎県外からでも頼めますか？</summary><p>宮崎県を中心にしていますが、メールでのご相談は県外からも受け付けます。</p></details>
+        <details><summary>会社のホームページだけを頼めますか？</summary><p>中小企業などのホームページは、応相談です。下のフォームから内容をお知らせください。</p></details>
+        <details><summary>宮崎県外からでも頼めますか？</summary><p>宮崎県を中心にしていますが、フォーム・メールでのご相談は県外からも受け付けます。</p></details>
       </div>
     </div>
   </section>
@@ -198,8 +198,18 @@
       <p class="label en">Contact</p>
       <h2 class="lp-end">まずは、一言だけでも。</h2>
       <p class="lp-end-note">内容が決まっていなくても大丈夫です。</p>
-      <a class="btn lp-btn-light js-mail" href="mailto:itwoshiyou@gmail.com">メールで相談する　itwoshiyou@gmail.com</a>
-      <p class="lp-end-hint">件名とひな形が入った状態で開きます。</p>
+      <form class="ai-form lp-form" data-kind="名刺×ホームページの相談" data-name-field="お名前・団体名">
+        <label><span>お名前・団体名 ＊</span><input type="text" name="お名前・団体名" required autocomplete="name"></label>
+        <label><span>メールアドレス ＊</span><input type="email" name="email" required autocomplete="email" placeholder="返信先になります"></label>
+        <label><span>いまの状況</span><textarea name="いまの状況" rows="3" placeholder="例：独立したばかりで、名刺はまだ無い"></textarea></label>
+        <label><span>希望の時期（任意）</span><input type="text" name="希望の時期" placeholder="例：来月の展示会まで"></label>
+        <label><span>そのほか（任意）</span><textarea name="そのほか" rows="3" placeholder="未定のことが多くても大丈夫です"></textarea></label>
+        <input type="text" name="_honey" class="lp-form-hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+        <p class="ai-form-warn">＊は必須です。送信すると、その内容がそのままTHE BONJINに届きます。</p>
+        <button class="btn lp-btn-light" type="submit">相談を送る（無料）</button>
+        <p class="lp-form-status" role="status" tabindex="-1"></p>
+        <p class="lp-end-hint">メールで送りたい方は <a href="mailto:itwoshiyou@gmail.com">itwoshiyou@gmail.com</a> へ。</p>
+      </form>
     </div>
   </section>
 </main>
@@ -221,5 +231,6 @@
 </footer>
 <script src="bg.js"></script>
 <script src="lp.js"></script>
+<script src="form.js"></script>
 </body>
 </html>

@@ -1,5 +1,5 @@
 /* THE BONJIN — lp.js（web.html：ホームページ・名刺のLP）
-   - 見出しの影、メールのひな形、見本名刺のQR模様、ふわっと出す */
+   - 見出しの影、見本名刺のQR模様、ふわっと出す */
 (function () {
   "use strict";
 
@@ -10,26 +10,6 @@
     window.addEventListener("scroll", onScroll, { passive: true });
     onScroll();
   }
-
-  /* mailto：件名と本文のひな形 */
-  var student = document.body.getAttribute("data-lp") === "student";
-  var subject = student ? "学割（名刺＋ホームページ 4,980円）の申し込み" : "名刺×ホームページの相談";
-  var body = (student ? [
-    "【お名前】",
-    "【学校・学年】（新社会人の方は、入社予定・入社した年）",
-    "【使う場面】（例：就活、学会、入社後の挨拶 など）",
-    "【載せたいこと】（サークル、作品、SNS など。未定でも大丈夫です）",
-    "【希望の時期】",
-    ""
-  ] : [
-    "【お名前・団体名】",
-    "【いまの状況】（例：独立したばかり、名刺はまだ無い など）",
-    "【希望の時期】",
-    ""
-  ]).join("\n");
-  var href = "mailto:itwoshiyou@gmail.com?subject=" + encodeURIComponent(subject) +
-    "&body=" + encodeURIComponent(body);
-  document.querySelectorAll(".js-mail").forEach(function (a) { a.href = href; });
 
   /* 見本名刺のQR（飾り。読み取れる本物ではない） */
   document.querySelectorAll(".mk-qr").forEach(function (cv) {

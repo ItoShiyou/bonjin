@@ -1,5 +1,5 @@
 /* THE BONJIN — ai.js（ai.html：AI業務改善支援のLP）
-   - 費用対効果の試算、相談メールの下書き、ふわっと出す */
+   - 費用対効果の試算、ふわっと出す */
 (function () {
   "use strict";
 
@@ -25,34 +25,6 @@
   }
   ["c-n", "c-m", "c-w", "c-t"].forEach(function (id) { $(id).addEventListener("input", calc); });
   calc();
-
-  /* 相談メールの下書き */
-  var mail = document.querySelector(".js-ai-mail");
-  function draft() {
-    var name = $("f-name").value.trim();
-    var worry = $("f-worry").value.trim();
-    var how = $("f-how").value;
-    var body = [
-      "THE BONJIN ご担当者さま",
-      "",
-      "AI業務改善の初回ヒアリングについて相談させてください。",
-      "",
-      "【会社名・お名前】" + (name || ""),
-      "【困っている業務】",
-      worry || "（例：毎月、複数のExcelを一つにまとめるのが大変）",
-      "【希望の進め方】" + how,
-      "【ご都合のよい日時】",
-      ""
-    ].join("\n");
-    mail.href = "mailto:itwoshiyou@gmail.com?subject=" +
-      encodeURIComponent("AI業務改善の相談" + (name ? "（" + name + "）" : "")) +
-      "&body=" + encodeURIComponent(body);
-  }
-  ["f-name", "f-worry", "f-how"].forEach(function (id) {
-    $(id).addEventListener("input", draft);
-    $(id).addEventListener("change", draft);
-  });
-  draft();
 
   /* quiet fade-in（lp.js の対象に、このページの部品を足す） */
   var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;

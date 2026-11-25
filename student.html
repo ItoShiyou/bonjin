@@ -51,7 +51,7 @@
       <p class="lp-price-tag"><span class="k">学割</span><b>4,980</b><span class="y">円</span><span class="p">ポッキリ</span><span class="t">税込</span></p>
       <p class="lp-price-note">名刺100枚の印刷代込み ／ 修正は2回まで</p>
       <div class="lp-cta">
-        <a class="btn js-mail" href="mailto:itwoshiyou@gmail.com">メールで申し込む</a>
+        <a class="btn" href="#contact">申し込む</a>
         <a class="lp-ghost" href="#compare">なぜホームページ？ ↓</a>
       </div>
     </div>
@@ -151,11 +151,11 @@
           <li>名刺とページのデザインをそろえる</li>
           <li>修正は2回まで</li>
         </ul>
-        <a class="btn js-mail" href="mailto:itwoshiyou@gmail.com">メールで申し込む</a>
+        <a class="btn" href="#contact">申し込む</a>
         <p class="lp-price-foot">対象：学生と、新社会人の方</p>
       </div>
       <ol class="lp-steps">
-        <li><span class="en">01</span>メールで申し込む</li>
+        <li><span class="en">01</span>フォームで申し込む</li>
         <li><span class="en">02</span>載せる内容を決める</li>
         <li><span class="en">03</span>見ながら直す（2回まで）</li>
         <li><span class="en">04</span>完成</li>
@@ -217,8 +217,19 @@
       <p class="label en">Apply</p>
       <h2 class="lp-end">次に渡す名刺から、<br class="sp">変えよう。</h2>
       <p class="lp-end-note">学割 税込4,980円ポッキリ ／ 名刺100枚の印刷代込み ／ 修正2回まで</p>
-      <a class="btn lp-btn-light js-mail" href="mailto:itwoshiyou@gmail.com">メールで申し込む　itwoshiyou@gmail.com</a>
-      <p class="lp-end-hint">件名とひな形が入った状態で開きます。</p>
+      <form class="ai-form lp-form" data-kind="学割申込" data-name-field="お名前">
+        <label><span>お名前 ＊</span><input type="text" name="お名前" required autocomplete="name"></label>
+        <label><span>メールアドレス ＊</span><input type="email" name="email" required autocomplete="email" placeholder="返信先になります"></label>
+        <label><span>学校・学年 ＊</span><input type="text" name="学校・学年" required placeholder="新社会人の方は、入社予定・入社した年"></label>
+        <label><span>使う場面</span><input type="text" name="使う場面" placeholder="例：就活、学会、入社後の挨拶"></label>
+        <label><span>載せたいこと</span><textarea name="載せたいこと" rows="3" placeholder="サークル、作品、SNS など。未定でも大丈夫です"></textarea></label>
+        <label><span>希望の時期（任意）</span><input type="text" name="希望の時期" placeholder="例：3月の説明会まで"></label>
+        <input type="text" name="_honey" class="lp-form-hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+        <p class="ai-form-warn">＊は必須です。送信すると、その内容がそのままTHE BONJINに届きます。</p>
+        <button class="btn lp-btn-light" type="submit">申し込む</button>
+        <p class="lp-form-status" role="status" tabindex="-1"></p>
+        <p class="lp-end-hint">メールで送りたい方は <a href="mailto:itwoshiyou@gmail.com">itwoshiyou@gmail.com</a> へ。</p>
+      </form>
     </div>
   </section>
 </main>
@@ -239,5 +250,6 @@
 </footer>
 <script src="bg.js"></script>
 <script src="lp.js"></script>
+<script src="form.js"></script>
 </body>
 </html>
