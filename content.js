@@ -7,9 +7,9 @@
 window.SITE = {
 
   meta: {
-    title: "THE BONJIN — 凡人",
+    title: "THE BONJIN｜宮崎から、つくる。学生の開発集団",
     vol: "VOL. 0",
-    updated: "2026-11-24",
+    updated: "2026-11-25",
   },
 
   /* ヒーロー直下の数字（実データだけを大きく。
@@ -44,11 +44,49 @@ window.SITE = {
   ],
 
 
+  /* 2026-11-25 リデザイン：宮崎を主体に。ヒーロー・紹介・想い・団体概要 */
+  hero: {
+    place: "MIYAZAKI, JAPAN — 31.9°N 131.4°E",
+    copy: ["宮崎から、", "つくる。"],
+    sub: "宮崎の学生がつくる、ホームページ・アプリ・ゲーム・Tシャツ。",
+  },
+
+  intro: {
+    label: "About",
+    heading: ["宮崎で、", "普通の学生が作っています。"],
+    body: [
+      "THE BONJIN は、宮崎を拠点に活動する、ゲームとアプリを作る学生の開発集団です。中心にいるのは宮崎大学医学部の学生。東京のメンバーとも組みながら、医学の勉強のかたわらでアプリを作り、App Store に6本を公開してきました。",
+      "作るものは、身近なところから始めます。宮崎のお店や団体、学生のためのホームページ、名刺、アプリ、ゲーム、そしてTシャツ。地元で作ったものを、地元で使ってもらうことを大切にしています。",
+    ],
+  },
+
+  message: {
+    label: "Message",
+    heading: "凡人が、作り続ける。",
+    body: [
+      "特別な人間はいない。いるのは、作り続けている普通の人間だけです。",
+      "才能があるから作るのではなく、作り続けたから形になる。宮崎という場所で、普通の学生が、ひとつずつ作ったものを積み上げていきます。凡人が作る、未来への冒険。",
+    ],
+  },
+
+  company: {
+    label: "Overview",
+    heading: "団体概要",
+    rows: [
+      ["名称", "THE BONJIN（ザ・ボンジン）"],
+      ["拠点", "宮崎県（宮崎大学）／東京"],
+      ["事業", "ホームページ制作／名刺 × ホームページ 同時開発／アプリ・システム開発／アプリ開発／ゲーム開発／Tシャツ事業"],
+      ["メンバー", "6人"],
+      ["対応エリア", "宮崎県を中心に（メールでのご相談は県外からも受け付けます）"],
+      ["連絡先", "gitpull@muse.ai"],
+    ],
+  },
+
   /* 仕事（事業）— 2026-11-24 追加。
      example = 「こんな依頼に」（想定される依頼の例。実績ではない）
      works   = 実績（実在するものだけ。[表示名, URL, 補足]） */
   services: {
-    lead: "作れるものは、仕事として引き受けます。小さな依頼から、まずは相談してください。",
+    lead: "宮崎のお店・団体・個人の「作りたい」を、仕事として引き受けます。小さな依頼から、まずは相談してください。",
     items: [
       {
         no: "01",
@@ -269,8 +307,11 @@ window.SITE = {
       ["旧サイト", "https://itoshiyou.github.io/thebonjin/"],
       ["GitHub (itoshiyou/thebonjin)", "https://github.com/itoshiyou/thebonjin"],
       ["仕事の依頼・相談", "#services"],
+      ["作品「九十度」", "art/02-kyujudo/index.html"],
+      ["作品「足跡」", "art/03-ashiato/index.html"],
+      ["作品「一滴」", "art/01-itteki/index.html"],
       ["公式LINE（新作・お知らせ）", "https://line.me/R/ti/p/@629zrowt"],
     ],
-    colophon: "DESIGN: awesome-design-md / Zapier を土台に改変。書体: Archivo, Zen Kaku Gothic New, IBM Plex Mono。写真は使っていません。",
+    colophon: "宮崎でつくっています。書体: Shippori Mincho, Zen Kaku Gothic New, Cormorant Garamond。",
   },
 };
