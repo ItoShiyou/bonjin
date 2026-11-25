@@ -148,19 +148,8 @@
   </div>
 </footer>
 
-<script>
-/* WebGL2が無い／動きを減らす設定なら、背景はインク動画に差し替える */
-(function () {
-  var gl2 = false;
-  try { gl2 = !!document.createElement("canvas").getContext("webgl2"); } catch (e) {}
-  var calm = !!(window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches);
-  if (!gl2 || calm) {
-    var f = document.getElementById("bg-frame"), v = document.getElementById("bg-video");
-    if (f && v) { f.hidden = true; v.hidden = false; if (calm) { v.removeAttribute("autoplay"); } }
-  }
-})();
-</script>
 <script src="content.js"></script>
 <script src="main.js"></script>
+<script src="bg.js"></script>
 </body>
 </html>

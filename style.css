@@ -84,17 +84,22 @@ main,.site-foot{position:relative;z-index:1}
 
 /* ---------- services ---------- */
 .svc-lead{margin:20px auto 0;max-width:620px;color:var(--ink-soft);font-size:15px}
-.svc-list{margin-top:56px;display:grid;grid-template-columns:repeat(3,1fr);gap:16px;align-items:start}
-@media(max-width:960px){.svc-list{grid-template-columns:1fr 1fr}}
-@media(max-width:600px){.svc-list{grid-template-columns:1fr}}
+.svc-list{margin-top:56px;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;align-items:start}
+.svc,.svc-head>div{min-width:0}
+@media(max-width:760px){.svc-list{grid-template-columns:minmax(0,1fr)}}
 .svc{background:var(--paper-3);padding:30px 28px 22px;scroll-margin-top:96px;transition:transform .3s,box-shadow .3s}
 .svc:hover{transform:translateY(-3px);box-shadow:0 10px 30px rgba(58,46,36,.08)}
 .svc-head{display:grid;grid-template-columns:1fr auto;gap:4px 12px;align-items:start}
-.svc-head .svc-no{grid-column:1/-1}
+.svc-head .svc-no{grid-column:1;grid-row:1}
+.svc-head .chip{grid-column:2;grid-row:1;align-self:center}
+.svc-head>div{grid-column:1/-1;grid-row:2}
 .svc-no{font-size:48px;line-height:1;color:var(--accent)}
 .svc-en{font-size:14px;color:var(--body);letter-spacing:.18em}
-.svc-name{font-size:clamp(20px,2.6vw,26px);margin-top:2px}
-.svc-body{margin-top:14px;color:var(--ink-soft);font-size:14px;line-height:1.9}
+.svc-name{font-size:clamp(16px,2vw,24px);margin-top:2px}
+.svc-name,.svc-body,.svc-en{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+@media(max-width:760px){.svc-name{font-size:clamp(13px,4.1vw,22px)}.svc{padding:26px 20px 18px}}
+.svc-body{margin-top:14px;color:var(--ink-soft);font-size:clamp(12px,1.3vw,14px);line-height:1.9}
+@media(max-width:760px){.svc-body{font-size:clamp(11px,3.4vw,14px);letter-spacing:.02em}}
 .svc-more{margin-top:14px;border-top:1px solid var(--line)}
 .svc-more summary{cursor:pointer;list-style:none;font-size:12px;color:var(--body);padding-top:10px;letter-spacing:.1em}
 .svc-more summary::-webkit-details-marker{display:none}
@@ -189,14 +194,16 @@ main,.site-foot{position:relative;z-index:1}
 /* ======================================================
    サブページ（apps.html / members/*.html）
    ====================================================== */
-.subpage{padding-top:24px;padding-bottom:96px}
+.subpage{padding-top:24px;padding-bottom:96px;position:relative;z-index:1}
+body.sub > footer{position:relative;z-index:1;background:rgba(58,46,36,.94);color:var(--paper-2);padding:28px 0;font-size:12px}
+body.sub > footer .colophon{margin-top:0}
 nav.top{display:flex;justify-content:space-between;align-items:center;padding:18px 0;border-bottom:1px solid var(--line)}
 nav.top .logo .dot{display:none}
 nav.top ul{display:flex;gap:28px;list-style:none;font-size:13px}
 nav.top ul a{text-decoration:none;color:var(--ink-soft)}
 nav.top .logo,nav.top ul a{white-space:nowrap}
 @media(max-width:640px){nav.top .logo{font-size:17px;letter-spacing:.16em}nav.top ul{gap:14px;font-size:12px}nav.top ul li:last-child{display:none}}
-.subpage > section{background:var(--paper-3);padding:56px 56px 60px;margin-top:40px}
+.subpage > section{background:rgba(250,246,238,.88);padding:56px 56px 60px;margin-top:40px}
 .subpage > section + section{margin-top:24px}
 @media(max-width:640px){.subpage > section{padding:32px 20px 36px}}
 .sec-head{display:flex;align-items:baseline;flex-wrap:wrap;gap:6px 18px;border-bottom:1px solid var(--line);padding-bottom:16px}
@@ -208,7 +215,7 @@ nav.top .logo,nav.top ul a{white-space:nowrap}
 
 /* apps */
 .cat-lead{margin-top:24px;font-size:15px;color:var(--ink-soft);max-width:720px}
-.cat-entry{background:var(--paper);padding:36px 40px 38px;margin-top:24px;scroll-margin-top:24px}
+.cat-entry{background:rgba(243,236,223,.92);padding:36px 40px 38px;margin-top:24px;scroll-margin-top:24px}
 .cat-spine{display:flex;align-items:center;gap:14px;flex-wrap:wrap}
 .cat-no{font-size:15px;color:var(--accent)}
 .cat-icon{width:28px;height:28px;border-radius:7px;flex:none}

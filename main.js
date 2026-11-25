@@ -157,24 +157,6 @@
     onScroll();
   }
 
-  /* ---------- 九十度：ページのスクロールで墨を回す ---------- */
-  var bgFrame = document.getElementById("bg-frame");
-  if (bgFrame && !bgFrame.hidden) {
-    var ticking = false;
-    var sendScroll = function () {
-      ticking = false;
-      var max = document.documentElement.scrollHeight - window.innerHeight;
-      var p = max > 0 ? Math.min(1, Math.max(0, window.scrollY / max)) : 0;
-      try { bgFrame.contentWindow.postMessage({ type: "bonjin-scroll", p: p }, "*"); } catch (e) {}
-    };
-    window.addEventListener("scroll", function () {
-      if (!ticking) { ticking = true; requestAnimationFrame(sendScroll); }
-    }, { passive: true });
-    window.addEventListener("resize", sendScroll);
-    bgFrame.addEventListener("load", sendScroll);
-    sendScroll();
-  }
-
   /* ---------- quiet fade-in ---------- */
   var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   if (!reduce && "IntersectionObserver" in window) {
