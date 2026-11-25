@@ -12,14 +12,22 @@
   }
 
   /* mailto：件名と本文のひな形 */
-  var subject = "ホームページ・名刺の相談";
-  var body = [
+  var student = document.body.getAttribute("data-lp") === "student";
+  var subject = student ? "学割（名刺＋ホームページ 4,980円）の申し込み" : "ホームページ・名刺の相談";
+  var body = (student ? [
+    "【お名前】",
+    "【学校・学年】（新社会人の方は、入社予定・入社した年）",
+    "【使う場面】（例：就活、学会、入社後の挨拶 など）",
+    "【載せたいこと】（サークル、作品、SNS など。未定でも大丈夫です）",
+    "【希望の時期】",
+    ""
+  ] : [
     "【頼みたいこと】ホームページ制作 ／ 名刺×ホームページ（どちらか）",
     "【お名前・団体名】",
     "【いまの状況】（例：来春に開業予定、名刺はまだ無い など）",
     "【希望の時期】",
     ""
-  ].join("\n");
+  ]).join("\n");
   var href = "mailto:itwoshiyou@gmail.com?subject=" + encodeURIComponent(subject) +
     "&body=" + encodeURIComponent(body);
   document.querySelectorAll(".js-mail").forEach(function (a) { a.href = href; });
@@ -47,7 +55,7 @@
   /* quiet fade-in */
   var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   if (!reduce && "IntersectionObserver" in window) {
-    var targets = document.querySelectorAll(".sec-title, .lp-worry li, .lp-plan, .lp-mock, .lp-steps, .lp-works, .lp-flow li, .lp-faq, .dark .wrap");
+    var targets = document.querySelectorAll(".sec-title, .lp-worry li, .lp-plan, .lp-mock, .lp-steps, .lp-works, .lp-flow li, .lp-faq, .dark .wrap, .cmp, .lp-reasons li, .lp-scenes, .lp-price");
     targets.forEach(function (el) { el.classList.add("rv"); });
     var io = new IntersectionObserver(function (es) {
       es.forEach(function (en) {

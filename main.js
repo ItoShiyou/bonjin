@@ -62,7 +62,8 @@
         '<span class="chip' + (it.status === "受付中" ? "" : " ghost") + '">' + esc(it.status) + "</span>" +
         "</header>" +
         '<p class="svc-body">' + esc(it.body) + "</p>" +
-        (it.lp ? '<p class="svc-lp"><a href="' + esc(it.lp) + '">専用ページを見る →</a></p>' : "") +
+        (it.lp ? '<p class="svc-lp"><a href="' + esc(it.lp) + '">専用ページを見る →</a>' +
+          (it.student ? '<a href="' + esc(it.student) + '">学生はこちら（学割） →</a>' : "") + "</p>" : "") +
         '<details class="svc-more"><summary>くわしく</summary><div class="svc-cols">' +
         (it.points ? list("できること", it.points, "svc-pt") : "") +
         '<div><h4>実績</h4><ul class="svc-works">' + works + "</ul></div>" +
