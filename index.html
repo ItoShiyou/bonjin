@@ -22,6 +22,7 @@
 </head>
 <body class="home">
 
+
 <header class="site-head">
   <div class="wrap head-in">
     <a class="logo" href="#top">THE BONJIN</a>
@@ -36,14 +37,18 @@
   </div>
 </header>
 
-<section class="hero" id="top">
-  <img class="hero-ink" src="assets/poster2.png" alt="" aria-hidden="true">
-  <div class="wrap hero-in">
-    <p class="hero-place en" id="hero-place"></p>
-    <h1 class="hero-copy" id="hero-copy">宮崎から、つくる。</h1>
-    <p class="hero-sub" id="hero-sub"></p>
+<!-- 背景の作品「九十度」：スクロールで墨が回る（正面＝凡人、真横＝THE Bonjin） -->
+<div class="bg" aria-hidden="true">
+  <iframe id="bg-frame" src="art/02-kyujudo/index.html?bg=1&amp;tone=sepia" title="九十度" tabindex="-1"></iframe>
+  <video id="bg-video" src="assets/ink-loop-v2.mp4" poster="assets/poster2.png" autoplay muted loop playsinline hidden></video>
+</div>
+
+<section class="cover" id="top">
+  <div class="cover-copy">
+    <p class="cover-place en" id="hero-place"></p>
+    <h1 class="cover-title" id="hero-copy">宮崎から、つくる。</h1>
   </div>
-  <a class="hero-scroll en" href="#about">Scroll</a>
+  <p class="cover-hint en">drag ／ tap ／ scroll</p>
 </section>
 
 <main>
@@ -65,7 +70,6 @@
       <div class="sec-title center">
         <p class="label en">Business</p>
         <h2>6つの事業</h2>
-        <p class="svc-lead" id="svc-lead"></p>
       </div>
       <div class="svc-list" id="svc-list"></div>
     </div>
@@ -101,7 +105,7 @@
       </div>
       <div class="sec-body">
         <div id="products-list"></div>
-        <p class="more"><a href="apps.html">App Store 公開中の6本をくわしく見る →</a></p>
+        <p class="more"><a href="apps.html">App Store の6本を見る →</a></p>
       </div>
     </div>
   </section>
@@ -121,7 +125,7 @@
   <section id="contact" class="block tint">
     <div class="wrap narrow center">
       <p class="label en">Contact</p>
-      <h2>まずは、気軽にご相談ください。</h2>
+      <h2>気軽にご相談ください。</h2>
       <div class="svc-contact" id="svc-contact"></div>
       <ol class="svc-flow" id="svc-flow"></ol>
     </div>
@@ -144,6 +148,18 @@
   </div>
 </footer>
 
+<script>
+/* WebGL2が無い／動きを減らす設定なら、背景はインク動画に差し替える */
+(function () {
+  var gl2 = false;
+  try { gl2 = !!document.createElement("canvas").getContext("webgl2"); } catch (e) {}
+  var calm = !!(window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches);
+  if (!gl2 || calm) {
+    var f = document.getElementById("bg-frame"), v = document.getElementById("bg-video");
+    if (f && v) { f.hidden = true; v.hidden = false; if (calm) { v.removeAttribute("autoplay"); } }
+  }
+})();
+</script>
 <script src="content.js"></script>
 <script src="main.js"></script>
 </body>

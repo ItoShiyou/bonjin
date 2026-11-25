@@ -27,8 +27,7 @@
   /* ---------- hero ---------- */
   if (S.hero) {
     set("#hero-place", esc(S.hero.place));
-    set("#hero-copy", S.hero.copy.map(function (c) { return "<span>" + esc(c) + "</span>"; }).join(""));
-    set("#hero-sub", esc(S.hero.sub));
+    set("#hero-copy", S.hero.copy.map(esc).join(""));
   }
 
   /* ---------- about (宮崎で) ---------- */
@@ -46,7 +45,6 @@
   /* ---------- services (事業) ---------- */
   var SV = S.services;
   if (SV) {
-    set("#svc-lead", esc(SV.lead));
     set("#svc-list", SV.items.map(function (it) {
       var works = it.works.length ? it.works.map(function (w) {
         var name = w[1] ? aTag(w[1], esc(w[0])) : esc(w[0]);
@@ -64,10 +62,10 @@
         '<span class="chip' + (it.status === "受付中" ? "" : " ghost") + '">' + esc(it.status) + "</span>" +
         "</header>" +
         '<p class="svc-body">' + esc(it.body) + "</p>" +
-        '<div class="svc-cols">' +
+        '<details class="svc-more"><summary>くわしく</summary><div class="svc-cols">' +
         (it.points ? list("できること", it.points, "svc-pt") : "") +
         '<div><h4>実績</h4><ul class="svc-works">' + works + "</ul></div>" +
-        "</div></article>";
+        "</div></details></article>";
     }).join(""));
     set("#svc-flow", SV.flow.map(function (f, i) {
       return '<li><span class="en">0' + (i + 1) + "</span>" + esc(f) + "</li>";
@@ -131,7 +129,6 @@
     var title = p.url ? aTag(p.url, esc(p.title)) : esc(p.title);
     return '<div class="p-row"><span class="chip' + (p.status === "公開中" ? "" : " ghost") + '">' + esc(p.status) + "</span>" +
       '<div><p class="p-title">' + title + "</p>" +
-      '<p class="p-hook">' + esc(p.hook) + "</p>" +
       '<p class="p-meta">' + esc(p.meta) + "</p></div></div>";
   }).join(""));
 
@@ -158,6 +155,24 @@
     var onScroll = function () { head.classList.toggle("scrolled", window.scrollY > 40); };
     window.addEventListener("scroll", onScroll, { passive: true });
     onScroll();
+  }
+
+  /* ---------- 九十度：ページのスクロールで墨を回す ---------- */
+  var bgFrame = document.getElementById("bg-frame");
+  if (bgFrame && !bgFrame.hidden) {
+    var ticking = false;
+    var sendScroll = function () {
+      ticking = false;
+      var max = document.documentElement.scrollHeight - window.innerHeight;
+      var p = max > 0 ? Math.min(1, Math.max(0, window.scrollY / max)) : 0;
+      try { bgFrame.contentWindow.postMessage({ type: "bonjin-scroll", p: p }, "*"); } catch (e) {}
+    };
+    window.addEventListener("scroll", function () {
+      if (!ticking) { ticking = true; requestAnimationFrame(sendScroll); }
+    }, { passive: true });
+    window.addEventListener("resize", sendScroll);
+    bgFrame.addEventListener("load", sendScroll);
+    sendScroll();
   }
 
   /* ---------- quiet fade-in ---------- */
