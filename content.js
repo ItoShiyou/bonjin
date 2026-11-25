@@ -90,11 +90,10 @@ window.SITE = {
         no: "01",
         name: "ホームページ制作",
         en: "WEBSITE",
-        status: "受付中",
+        status: "応相談",
         body: "企画から公開まで、まるごと。",
-        lp: "web.html",
         points: ["企画と文章の整理", "デザイン", "実装（動きのある演出も）", "公開・独自ドメインの設定"],
-        examples: ["開業する店舗の、営業時間と地図が分かる1ページ", "サークルや学生団体の紹介サイト", "研究室・個人の実績まとめページ"],
+        examples: ["中小企業の会社紹介サイト", "店舗の、営業時間と地図が分かるページ"],
         works: [
           ["THE BONJIN 公式サイト（このサイト）", "https://bonjin.gitpullpull.me", "企画・デザイン・実装・WebGL作品"],
           ["page.gitpullpull.me", "https://page.gitpullpull.me", "個人のリンク集"],
